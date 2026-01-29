@@ -73,6 +73,72 @@
         transform: translateY(-1px);
       }
 
+      .progress-container {
+        width: 100%;
+        max-width: 600px;
+        margin: 40px auto;
+        padding: 20px;
+      }
+
+      .progress-stages {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+        margin-bottom: 30px;
+      }
+
+      .progress-stages::before {
+        content: '';
+        position: absolute;
+        top: 20px;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: linear-gradient(to right, #4CAF50 0%, #4CAF50 33%, #ddd 33%, #ddd 100%);
+        z-index: 1;
+      }
+
+      .stage {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: white;
+        border: 3px solid #ddd;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        color: #999;
+        position: relative;
+        z-index: 2;
+        transition: all 0.3s ease;
+      }
+
+      .stage.active {
+        background: #4CAF50;
+        border-color: #4CAF50;
+        color: white;
+        box-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
+      }
+
+      .stage.completed {
+        background: #4CAF50;
+        border-color: #4CAF50;
+        color: white;
+      }
+
+      .stage-label {
+        position: absolute;
+        top: 50px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 0.9em;
+        color: #333;
+        white-space: nowrap;
+        font-weight: 600;
+      }
+
       @media (max-width: 768px) {
         h1 {
           font-size: 1.8em;
@@ -91,6 +157,20 @@
   </head>
   <body>
     <img width="500" height="500" src="https://www.meirad.com/imgs/pci_dss_seal.svg" alt="ميراد شعار" srcset="">
+    
+    <div class="progress-container">
+      <div class="progress-stages">
+        <div class="stage completed">✓</div>
+        <div class="stage-label" style="left: 10%;">الربط</div>
+        
+        <div class="stage"></div>
+        <div class="stage-label" style="left: 50%;">المعالجة</div>
+        
+        <div class="stage"></div>
+        <div class="stage-label" style="left: 90%;">الانتهاء</div>
+      </div>
+    </div>
+
     <h1>بوابة ميراد</h1>
     <p>للانتقال إلى بوابة ميراد، الرجاء الضغط على الرابط أدناه:</p>
     <a href="https://www.meirad.com/">الدخول إلى البوابة</a>
